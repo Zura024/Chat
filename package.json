@@ -4,6 +4,7 @@
   "description": "socket app",
   "main": "app.js",
   "scripts": {
+    "start" : "node server/app.js",
     "test": "test"
   },
   "repository": {
