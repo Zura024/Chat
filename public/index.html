@@ -13,10 +13,19 @@
 
         socket.on('connect', ()=>{
            console.log('Connected To Server');
+            socket.emit('createMessage',{
+                from : 'mickey',
+                text : 'hi all',
+                createdAt: Date.now()
+            });
         });
 
         socket.on('disconnect', ()=>{
            console.log('Disconnect');
+        });
+
+        socket.on('newMessage',(message)=>{
+            console.log('New Email Comes',message);
         });
     </script>
 </body>
