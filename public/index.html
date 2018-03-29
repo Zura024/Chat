@@ -6,22 +6,21 @@
 </head>
 <body>
     Welcome To Chat App
+    <button onclick="sendMessage()"></button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
-
-        socket.on('connect', ()=>{
-           console.log('Connected To Server');
-            socket.emit('createMessage',{
+        function sendMessage() {
+            socket.emit('newMessage',{
                 from : 'mickey',
                 text : 'hi all',
-                createdAt: Date.now()
             });
+        }
+        socket.on('connect', ()=>{
         });
 
         socket.on('disconnect', ()=>{
-           console.log('Disconnect');
         });
 
         socket.on('newMessage',(message)=>{
