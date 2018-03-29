@@ -1,0 +1,47 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "socket app",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Zura024/Chat.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "expect": "^23.0.0-alpha.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "file-exists": "^5.0.1",
+    "jsonwebtoken": "^8.2.0",
+    "method-override": "^2.3.10",
+    "mocha": "^5.0.4",
+    "moment": "^2.21.0",
+    "mongoose": "^5.0.9",
+    "mongoose-url-slugs": "^1.0.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "rand-token": "^0.4.0",
+    "supertest": "^3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.4"
+  },
+  "author": "Zura Tevdoradze",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zura024/Chat/issues"
+  },
+  "homepage": "https://github.com/Zura024/Chat#readme"
+}
