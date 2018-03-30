@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    Welcome To Chat App
-    <br>
-    <form id="message-from">
-        <!--<label for="from">From</label>-->
-        <!--<input type="text" id="from" name="from" >-->
-        <label for="text">Text</label>
-        <input type="text" id="text" name="message">
-        <button>Send</button>
-    </form>
-    <br>
-    <button id="location-button">Send Location</button>
-    <br>
+<h1>Welcome To Chat App</h1>
+<br>
+<form id="message-from">
+    <div class="form-group">
+        <label for="from">Your Name</label>
+        <input type="text" class="form-control" id="from" name="from">
+    </div>
+    <div class="form-group">
+        <label for="text">Message</label>
+        <textarea rows="5" class="form-control" id="text" name="message"></textarea>
+    </div>
+    <button class="btn btn-primary">Send</button>
+</form>
+<button id="location-button" class="btn btn-primary">Send Location</button>
+<div class="message-container">
     <ol id="messages">
 
     </ol>
-    <script src="/js/libs/jquery-3.3.1.min.js"> </script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/index.js"> </script>
+</div>
+<script src="/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
 
 </body>
 </html>

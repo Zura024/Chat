@@ -14,11 +14,12 @@ describe('generateMessage', () => {
 
     it('Should generate correct LocationMessage', () => {
         let location = {
+            from : 'Admin',
             latitude: 2,
             longitude:1,
         };
         let url = 'https://www.google.com/maps?q2,1';
-        let locMessage = generateLocMessage('Admin',location);
+        let locMessage = generateLocMessage(location);
         expect(locMessage.url).toBe(url);
         expect.objectContaining({from: 'Admin'});
     });

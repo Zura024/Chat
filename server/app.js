@@ -20,7 +20,7 @@ io.on('connection', (socket)=>{
     });
 
     socket.on('createLocation',(location)=>{
-        io.emit('newLocMessage', generateLocMessage('Admin',location));
+        io.emit('newLocMessage', generateLocMessage(location));
     });
 
     socket.on('disconnect', ()=>{

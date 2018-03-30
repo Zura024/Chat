@@ -7,6 +7,7 @@ locationButton.on('click',(()=>{
     }
     navigator.geolocation.getCurrentPosition((position)=>{
         socket.emit('createLocation',{
+            from : $('#from').val(),
             latitude : position.coords.latitude,
             longitude : position.coords.longitude,
         });
@@ -18,7 +19,7 @@ locationButton.on('click',(()=>{
 $('#message-from').on('submit',(e)=>{
     e.preventDefault();
     socket.emit('newMessage',{
-        from : 'UUser',
+        from : $('#from').val(),
         text : $('#text').val(),
     },(data)=>{
         console.log(data);
@@ -32,13 +33,14 @@ socket.on('disconnect', ()=>{
 });
 
 socket.on('newMessage',(message)=>{
-    let li = $('<li></li>');
+    let li = $('<p></p>');
     li.text(`${message.from} :  ${message.text} `);
     $('#messages').append(li);
+    $('#text').val('');
 });
 
 socket.on('newLocMessage',(message)=>{
-    let li = $('<li></li>');
+    let li = $('<p></p>');
     let a = $('<a target="_blank">My Location</a>');
     a.attr('href',message.url);
     li.text(`${message.from} : `);
