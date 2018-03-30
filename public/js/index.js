@@ -1,4 +1,19 @@
 const socket = io();
+const locationButton = $('#location-button');
+
+locationButton.on('click',(()=>{
+    if (!navigator.geolocation){
+        return alert('Location is Req');
+    }
+    navigator.geolocation.getCurrentPosition((position)=>{
+        socket.emit('createLocation',{
+            latitude : position.coords.latitude,
+            longitude : position.coords.longitude,
+        });
+    },()=>{
+       alert('Unable To Fetch The location')
+    });
+}));
 
 $('#message-from').on('submit',(e)=>{
     e.preventDefault();
@@ -7,7 +22,7 @@ $('#message-from').on('submit',(e)=>{
         text : $('#text').val(),
     },(data)=>{
         console.log(data);
-    })
+    });
 });
 
 socket.on('connect', ()=>{

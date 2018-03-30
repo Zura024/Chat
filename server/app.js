@@ -14,9 +14,13 @@ app.use(express.static(path.join(__dirname, '../public')));
 io.on('connection', (socket)=>{
     console.log('User connected');
 
-    socket.on('newMessage', (message,calback)=>{
+    socket.on('newMessage', (message,callback)=>{
         io.emit('newMessage', generateMessage(message));
-        calback('It is from server');
+        callback('It is from server');
+    });
+
+    socket.on('createLocation',(location)=>{
+        io.emit('newMessage', generateMessage({from:'admin', text:`${location.latitude} ::: ${location.longitude}`}));
     });
 
     socket.on('disconnect', ()=>{
