@@ -8,7 +8,6 @@ describe('generateMessage', () => {
             text: 'Hi'
         };
         let message = generateMessage(testMessage);
-        expect(message.createdAt).toBeLessThan(Date.now());
         expect.objectContaining({from: testMessage.from, text: testMessage.text});
     });
 
