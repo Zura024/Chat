@@ -1,18 +1,30 @@
 h1{
     margin-left: 20px;
 }
-form{
-    margin-left: 50px;
-    margin-right: 50px;
-}
 #from{
     width: 200px;
 }
-#location-button{
-    margin-top: 4px;
-    margin-left: 50px;
-}
+
 .message-container{
     margin-top: 10px;
     margin-left: 12px;
+}
+
+#message-from {
+    margin-bottom: 2px;
+    left: 2px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.Row
+{
+    display: table;
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+.Column
+{
+    display: table-cell;
 }

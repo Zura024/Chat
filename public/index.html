@@ -8,27 +8,31 @@
 </head>
 <body>
 <h1>Welcome To Chat App</h1>
+<input type="hidden" class="form-control" value="User" id="from" name="from">
 <br>
-<form id="message-from">
-    <div class="form-group">
-        <label for="from">Your Name</label>
-        <input type="text" class="form-control" id="from" name="from">
-    </div>
-    <div class="form-group">
-        <label for="text">Message</label>
-        <textarea rows="5" class="form-control" id="text" name="message"></textarea>
-    </div>
-    <button class="btn btn-primary">Send</button>
-</form>
-<button id="location-button" class="btn btn-primary">Send Location</button>
 <div class="message-container">
     <ol id="messages">
 
     </ol>
 </div>
+<form id="message-from">
+    <div class="Row">
+        <div class="Column" style="width: 80%">
+            <input  class="form-control" id="text" autocomplete="off" name="message">
+        </div>
+        <button style="display: none" class="btn btn-primary">Send</button>
+        <div class="Column" style="width: 10%">
+            <button  id="location-button" class="btn btn-primary">Send Location</button>
+        </div>
+    </div>
+</form>
 <script src="/js/libs/jquery-3.3.1.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>
 
 </body>
 </html>
+<style>
+
+
+</style>
