@@ -2,37 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chat</title>
+    <title>Chat App</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Welcome To Chat App</h1>
-<input type="hidden" class="form-control" value="User" id="from" name="from">
-<br>
-<div class="message-container">
-    <ol id="messages">
-
-    </ol>
-</div>
-<form id="message-from">
-    <div class="Row">
-        <div class="Column" style="width: 80%">
-            <input  class="form-control" id="text" autocomplete="off" name="message">
+    <form class="centered-form"action="/chat.html" style="display: table-cell; padding-left: 500px; padding-top: 300px">
+        <div class="form-group">
+            <label for="from">Your Name</label>
+            <input type="text" name="name" class="form-control" id="from" placeholder="Enter Name"></div>
+        <div class="form-group">
+            <label for="room">Room</label>
+            <input type="text" name="room" class="form-control" id="room" placeholder="Enter Room Name">
         </div>
-        <button style="display: none" class="btn btn-primary">Send</button>
-        <div class="Column" style="width: 10%">
-            <button  id="location-button" class="btn btn-primary">Send Location</button>
-        </div>
-    </div>
-</form>
-<script src="/js/libs/jquery-3.3.1.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
-
+        <button type="submit" class="btn btn-primary">Join</button>
+    </form>
 </body>
 </html>
-<style>
-
-
-</style>
