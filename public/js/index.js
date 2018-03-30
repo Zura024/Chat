@@ -36,3 +36,12 @@ socket.on('newMessage',(message)=>{
     li.text(`${message.from} :  ${message.text} `);
     $('#messages').append(li);
 });
+
+socket.on('newLocMessage',(message)=>{
+    let li = $('<li></li>');
+    let a = $('<a target="_blank">My Location</a>');
+    a.attr('href',message.url);
+    li.text(`${message.from} : `);
+    li.append(a);
+    $('#messages').append(li);
+});
