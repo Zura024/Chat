@@ -1,5 +1,5 @@
 const expect = require('expect');
-const {generateMessage} = require('./../utils/message');
+const {generateMessage,generateLocMessage} = require('./../utils/message');
 
 describe('generateMessage', () => {
     it('Should generate correct message', () => {
@@ -10,5 +10,16 @@ describe('generateMessage', () => {
         let message = generateMessage(testMessage);
         expect(message.createdAt).toBeLessThan(Date.now());
         expect.objectContaining({from: testMessage.from, text: testMessage.text});
+    });
+
+    it('Should generate correct LocationMessage', () => {
+        let location = {
+            latitude: 2,
+            longitude:1,
+        };
+        let url = 'https://www.google.com/maps?q2,1';
+        let locMessage = generateLocMessage('Admin',location);
+        expect(locMessage.url).toBe(url);
+        expect.objectContaining({from: 'Admin'});
     });
 });
