@@ -14,8 +14,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 io.on('connection', (socket)=>{
     console.log('User connected');
 
-    socket.on('newMessage', (message)=>{
+    socket.on('newMessage', (message,calback)=>{
         io.emit('newMessage', generateMessage(message));
+        calback('It is from server');
     });
 
     socket.on('disconnect', ()=>{

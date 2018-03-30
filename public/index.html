@@ -6,26 +6,22 @@
 </head>
 <body>
     Welcome To Chat App
-    <button onclick="sendMessage()"></button>
+    <br>
+    <form id="message-from">
+        <!--<label for="from">From</label>-->
+        <!--<input type="text" id="from" name="from" >-->
+        <label for="text">Text</label>
+        <input type="text" id="text" name="message">
+        <button>Send</button>
+    </form>
 
+    <br>
+    <ol id="messages">
+
+    </ol>
+    <script src="/js/libs/jquery-3.3.1.min.js"> </script>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        function sendMessage() {
-            socket.emit('newMessage',{
-                from : 'mickey',
-                text : 'hi all',
-            });
-        }
-        socket.on('connect', ()=>{
-        });
+    <script src="/js/index.js"> </script>
 
-        socket.on('disconnect', ()=>{
-        });
-
-        socket.on('newMessage',(message)=>{
-            console.log('New Email Comes',message);
-        });
-    </script>
 </body>
 </html>
