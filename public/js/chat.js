@@ -46,6 +46,18 @@ socket.on('connect', ()=>{
 socket.on('disconnect', ()=>{
 });
 
+socket.on('updateUsers',user=>{
+    const right = $('.right');
+    right.html('');
+    right.append('<h2 class="member-title">Online Member</h2>');
+    user.forEach((name)=>{
+        let i = '<div class="Column" id="'+name+'"><i class="fa fa-user fa-lg"></i></div>';
+        let user = '<div class="Column"> <p class="member-name">'+name+'</p> </div>';
+        let body = '<div class="member-body">'+i+user+'</div>';
+        right.append(body);
+    })
+});
+
 socket.on('newMessage',(message)=>{
     let div = $('<div></div>');
     let h = $('<h5></h5>');

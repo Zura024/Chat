@@ -5,27 +5,34 @@
     <title>Chat</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
-<h1>Welcome To Chat App</h1>
 <input type="hidden" class="form-control" value="User" id="from" name="from">
-<br>
-<div class="message-container">
-    <ol id="messages">
+<div class="left">
+    <h1>Welcome To Chat App</h1>
+    <div class="message-container">
+        <ol id="messages">
 
-    </ol>
-</div>
-<form id="message-from">
-    <div class="Row">
-        <div class="Column" style="width: 80%">
-            <input  class="form-control" id="text" autocomplete="off" name="message">
-        </div>
-        <button style="display: none" class="btn btn-primary">Send</button>
-        <div class="Column" style="width: 10%">
-            <button  id="location-button" class="btn btn-primary">Send Location</button>
-        </div>
+        </ol>
     </div>
-</form>
+    <form id="message-from">
+        <div class="Row">
+            <div class="Column" style="width: 80%">
+                <input class="form-control" id="text" autocomplete="off" name="message">
+            </div>
+            <button style="display: none" class="btn btn-primary">Send</button>
+            <div class="Column" style="width: 10%">
+                <button id="location-button" class="btn btn-primary">Send Location</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="right">
+
+</div>
 <script src="/js/libs/jquery-3.3.1.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/chat.js"></script>

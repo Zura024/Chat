@@ -6,15 +6,16 @@ const port = process.env.PORT || 9999;
 const path = require('path');
 const {generateMessage, generateLocMessage} = require('./utils/message');
 const {isString} = require('./utils/validation');
+const {User} = require('./models/user');
 
 const server = http.createServer(app);
 const io = socketIO(server);
+const user = new User();
 
 app.use(express.static(path.join(__dirname, '../public')));
 
 io.on('connection', (socket) => {
     console.log('User connected');
-
     socket.on('newMessage', (message, callback) => {
         io.emit('newMessage', generateMessage(message));
         callback('It is from server');
@@ -25,6 +26,11 @@ io.on('connection', (socket) => {
             callback('Name and Room are required');
 
         socket.join(params.room);
+
+        user.remove(socket.id);
+        user.add(socket.id, params.name, params.room);
+
+        io.to(params.room).emit('updateUsers', user.getNameList(params.room));
 
         socket.emit('newMessage', generateMessage({from: 'Admin', text: 'Welcome, Here We go'}));
         socket.broadcast.to(params.room).emit('newMessage',generateMessage({from: 'Admin', text: `${params.name} joins chat`}));
@@ -38,6 +44,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log('User Disconnect To Server ');
+        user.remove(socket.id);
     });
 });
 
