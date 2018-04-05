@@ -17,7 +17,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 io.on('connection', (socket) => {
     console.log('User connected');
     socket.on('newMessage', (message, callback) => {
-        io.emit('newMessage', generateMessage(message));
+        let u =  user.get(socket.id);
+        io.to(u.room).emit('newMessage', generateMessage(message));
         callback('It is from server');
     });
 
@@ -39,7 +40,8 @@ io.on('connection', (socket) => {
     });
 
     socket.on('createLocation', (location) => {
-        io.emit('newLocMessage', generateLocMessage(location));
+        let u =  user.get(socket.id);
+        io.to(u.room).emit('newLocMessage', generateLocMessage(location));
     });
 
     socket.on('disconnect', () => {
